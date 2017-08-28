@@ -12,7 +12,9 @@ const config = require('yargs')
         u: 'url',
         v: 'verbosity',
         l: 'lirc-host',
-        p: 'lirc-port'
+        p: 'lirc-port',
+        U: 'mqtt-user',
+        P: 'mqtt-password'
     })
     .default({
         u: 'mqtt://127.0.0.1',
