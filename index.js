@@ -29,7 +29,16 @@ if (config.topic !== '' && !config.topic.match(/\/$/)) {
 let mqttConnected;
 
 log.info('mqtt trying to connect', config.url);
-const mqtt = Mqtt.connect(config.url, {will: {topic: config.name + '/connected', payload: '0'}});
+const mqtt = Mqtt.connect(config.url, {
+    will: {
+        topic: config.name + '/connected', 
+        payload: '0',
+        username: config.mqttUser,
+        password: config.mqttPassword,
+        qos: 1,
+        retain: true
+    }
+});
 
 mqtt.on('connect', () => {
     mqttConnected = true;
